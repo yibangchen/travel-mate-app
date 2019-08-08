@@ -5,9 +5,19 @@ const itinerarySchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  details: {
-    type: String
-  }
+  destinations: [{
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Location',
+      required: true
+    },
+    arriveDate: {
+      type: Date
+    },
+    departDate: {
+      type: Date
+    }
+  }]
 }, { timestamps: true } );
 
 const Itinerary = mongoose.model('Itinerary', itinerarySchema);

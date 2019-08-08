@@ -2,7 +2,7 @@ const db = require('../models');
 const jwt = require('jsonwebtoken');
 
 exports.signin = async function(req, res, next) {
-
+  console.log('trying to login');
   try {
     let user = await db.User.findOne({
       email: req.body.email

@@ -31,6 +31,10 @@ const userSchema = new mongoose.Schema({
   messages: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Message'
+  }],
+  itineraries: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Itinerary'
   }]
 }, { timestamps: true });
 
