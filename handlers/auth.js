@@ -11,9 +11,11 @@ exports.signin = async function(req, res, next) {
 
     if (isMatch) {
       let token = jwt.sign({ id }, process.env.SECRET_KEY);
+
       return res.status(200).json({
-        id, username, token
+        token, ...user
       });
+      
     } else {
       return next({
         status: 400,

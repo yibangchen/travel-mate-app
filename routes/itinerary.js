@@ -1,7 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { startItinerary, modifyItinerary, deleteItinerary } = require('../handlers/itinerary');
+const { getItinerary, createItinerary, modifyItinerary, deleteItinerary } = require('../handlers/itinerary');
 
-router.post('/itinerary', startItinerary);
+// prefix /api/users/:id/itinerary
+router
+  .route('/')
+  .get(getItinerary)
+  .post(createItinerary)
+  .put(modifyItinerary)
+  .delete(deleteItinerary);
 
 module.exports = router;
